@@ -1,5 +1,6 @@
 import express from 'express'
-import { getAllProperties, getSingleProperty, listProperty, updateProperty, deleteProperty } from '../controllers/property.controller.js';
+import { getAllProperties, getSingleProperty, updateProperty, deleteProperty, createProperty } from '../controllers/property.controller.js';
+import { checkRoles, getPayloadFromToken } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ router.get('/', getAllProperties);
 
 router.get('/:id', getSingleProperty);
 
-router.post('/', listProperty);
+router.post('/', getPayloadFromToken, checkRoles, createProperty);
 
-router.patch('/:id', updateProperty);
+router.patch('/:id',getPayloadFromToken, checkRoles, updateProperty);
 
-router.delete('/:id', deleteProperty);
+router.delete('/:id',getPayloadFromToken, checkRoles, deleteProperty);
 
 export default router;

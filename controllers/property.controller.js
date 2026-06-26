@@ -1,4 +1,4 @@
-import Property from '../routes/property.route.js'
+import Property from '../models/property.model.js'
 
 export async function getAllProperties(req, res, next) {
     try {
@@ -23,10 +23,10 @@ export async function getSingleProperty(req, res, next) {
     }
 }
 
-export async function listProperty(req, res, next) {
+export async function createProperty(req, res, next) {
     try {
        const id = req.user.id
-       const property = new Property({ ...req.body, userId: id})
+       const property = new Property({ ...req.body, landlordId: id})
        await property.save()
        res.status(201).json(property)
     } catch (error) {
