@@ -1,4 +1,4 @@
-import Property from '../routes/property.route.js'
+import Property from '../models/property.model.js'
 
 export async function getAllProperties(req, res, next) {
     try {
