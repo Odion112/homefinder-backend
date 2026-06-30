@@ -7,8 +7,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch --env-file=.env index.js"
+    "dev": "node --watch --env-file=.env index.js",
+    "start": "node --env-file=.env index.js",
+    "build": "npm install"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
